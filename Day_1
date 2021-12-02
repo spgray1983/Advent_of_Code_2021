@@ -1,0 +1,42 @@
+#Day One
+
+def dataInput(filename):
+    textfile = open(filename)
+    templist = textfile.readlines()
+    newlist = []
+    for item in templist:
+        value = item
+        value = value.replace("/n", "")
+        value = value.replace(" ", "")
+        value = int(value)
+        newlist.append(value)
+    return(newlist)
+data=(dataInput('Day_1.txt'))
+
+def Increaser(data):
+    count = 0
+    i= 1
+    while i < len(data):
+        if data[i] > data [i-1]:
+            count = count + 1
+            i +=1
+        else: i +=1
+    return count
+
+print(Increaser(data))
+
+###Part 2
+def increaserTwo(data):
+    count = 0
+    i = 0
+    previous = 0
+    future = 0
+    while i < len(data)-3:
+        previous = data[i]+data[i+1]+data[i+2]
+        future = data[i+1]+data[i+2]+data[i+3]
+        if previous < future:
+            count = count + 1
+            i +=1
+        else: i+=1
+    return count
+print(increaserTwo(data))
