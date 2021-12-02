@@ -1,0 +1,41 @@
+#Part 1
+def partOne(data):
+    newdata = open(data,'r')
+    Lines = newdata.readlines()
+    horizontal=0
+    depth = 0
+    for line in Lines:
+        temp = line.split(' ')
+        if temp[0] == 'forward':
+            horizontal = horizontal + int(temp[1])
+        elif temp[0] == 'down':
+            depth = depth + int(temp[1])
+        elif temp[0] == 'up':
+            depth = depth - int(temp[1])
+        else: next
+    output=horizontal*depth
+    return output
+    
+ print(partOne('Day_2_Data.txt'))
+ 
+#Part 2
+def partTwo(data):
+    newdata = open(data,'r')
+    Lines = newdata.readlines()
+    horizontal=0
+    aim = 0
+    depth = 0
+    for line in Lines:
+        temp = line.split(' ')
+        if temp[0] == 'down':
+            aim = aim + int(temp[1])
+        elif temp[0] == 'up':
+            aim = aim - int(temp[1])
+        elif temp[0] == 'forward':
+            horizontal = horizontal + int(temp[1])
+            depth = depth + aim * int(temp[1])
+        else: next
+    output=horizontal*depth
+    return output
+    
+print(partTwo('Day_2_Data.txt'))
