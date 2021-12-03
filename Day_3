@@ -122,3 +122,54 @@ def partOne(data):
     gamma = int(gamma,2)
     epsilon= int(epsilon,2)
     return gamma*epsilon
+    
+##Part Two (more efficiently)
+def dataInput(filename):
+    textfile = open(filename)
+    templist = textfile.readlines()
+    newlist = []
+    for item in templist:
+        value = item
+        value = value.replace("\n", "")
+        value = value.replace(" ", "")
+        newlist.append(value)
+    return(newlist)
+
+###Calculate OxygenGenerator
+def oxyGen(data):
+    temp = dataInput(data)
+    i=0
+    while len(temp)>1:
+        ones=0
+        zeros=0
+        for item in temp:
+            if item[i]=='1':
+                ones+=1
+            else: zeros+=1
+        if ones>=zeros:
+            temp = [s for s in temp if s[i] =='1']
+        else: temp = [s for s in temp if s[i] !='1']
+        i+=1
+    return temp[0]
+
+##Calculate CO2    
+def cO2(data):
+    temp = dataInput(data)
+    i=0
+    while len(temp)>1:
+        ones=0
+        zeros=0
+        for item in temp:
+            if item[i]=='1':
+                ones+=1
+            else: zeros+=1
+        if zeros<=ones:
+            temp = [s for s in temp if s[i] =='0']
+        else: temp = [s for s in temp if s[i] !='0']
+        i+=1
+    return temp[0]
+
+#Get Submission
+myco2=int(cO2('Day_3_Data.txt'),2)
+myoxygen=int(oxyGen('Day_3_Data.txt'),2)
+print(myco2*myoxygen)
