@@ -1,0 +1,124 @@
+#Part One
+def partOne(data):
+    newdata = open(data,'r')
+    Lines = newdata.readlines()
+    firstone = 0
+    firstzero = 0
+    secondone=0
+    secondzero=0
+    thirdone=0
+    thirdzero=0
+    fourthone=0
+    fourthzero=0
+    fifthone=0
+    fifthzero=0
+    sixone=0
+    sixzero=0
+    sevenone=0
+    sevenzero=0
+    eightone=0
+    eightzero=0
+    nineone=0
+    ninezero=0
+    tenone=0
+    tenzero=0
+    elevenone=0
+    elevenzero=0
+    tweleveone=0
+    twelevezero=0
+    for line in Lines:
+        first= int(line[0])
+        second = int(line[1])
+        third = int(line[2])
+        fourth = int(line[3])
+        fifth = int(line[4])
+        six = int(line[5])
+        seven = int(line[6])
+        eight=int(line[7])
+        nine=int(line[8])
+        ten=int(line[9])
+        eleven=int(line[10])
+        tweleve=int(line[11])
+        if first==0:
+            firstzero +=1
+        else: firstone +=1
+        if second==0:
+            secondzero +=1
+        else: secondone +=1
+        if third == 0:
+            thirdzero +=1
+        else: thirdone +=1
+        if fourth == 0:
+            fourthzero +=1
+        else: fourthone+=1
+        if fifth ==0:
+            fifthzero +=1
+        else: fifthone +=1
+        if six ==0:
+            sixzero +=1
+        else: sixone +=1
+        if seven ==0:
+            sevenzero +=1
+        else: sevenone +=1
+        if eight ==0:
+            eightzero +=1
+        else: eightone +=1
+        if nine ==0:
+            ninezero +=1
+        else: nineone +=1
+        if ten ==0:
+            tenzero +=1
+        else: tenone +=1
+        if eleven ==0:
+            elevenzero +=1
+        else: elevenone +=1
+        if tweleve ==0:
+            twelevezero +=1
+        else: tweleveone +=1
+    temp1='0'
+    if firstone > firstzero:
+        temp1='1'
+    temp2='0'
+    if secondone>secondzero:
+        temp2='1'
+    temp3='0'
+    if thirdone>thirdzero:
+        temp3='1'
+    temp4='0'
+    if fourthone>fourthzero:
+        temp4='1'
+    temp5='0'
+    if fifthone>fifthzero:
+        temp5='1'
+    temp6='0'
+    if sixone>sixzero:
+        temp6='1'
+    temp7='0'
+    if sevenone>sevenzero:
+        temp7='1'
+    temp8='0'
+    if eightone>eightzero:
+        temp8='1'
+    temp9='0'
+    if nineone>ninezero:
+        temp9='1'
+    temp10='0'
+    if tenone>tenzero:
+        temp10='1'
+    temp11='0'
+    if elevenone>elevenzero:
+        temp11='1'
+    temp12='0'
+    if tweleveone>twelevezero:
+        temp12='1'
+    
+    gamma = (temp1+temp2+temp3+temp4+temp5+temp6+temp7+temp8+temp9+temp10+temp11+temp12)
+    epsilon=""
+    for bit in gamma:
+        if bit == "1":
+            epsilon += "0"
+        else: epsilon += "1"
+    
+    gamma = int(gamma,2)
+    epsilon= int(epsilon,2)
+    return gamma*epsilon
