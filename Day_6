@@ -1,0 +1,39 @@
+#PartOne
+def startList(filename):
+    data=open(filename)
+    templist=data.readlines()
+    newlist=[]
+    for item in templist:
+        value=item
+        value = value.replace("\n", "")
+        newlist.append(value)
+    return(newlist)
+
+data=startList("Day_6_Data.txt")
+
+inputData=data[0].split(',')
+for i in range(0, len(inputData)):
+    inputData[i] = int(inputData[i])
+
+fishList=inputData
+
+def newFish():
+    dayCount=9
+    fishList.append(dayCount)
+    
+days=1
+lifetime=80
+    
+while days<=lifetime:
+    for pos, item in enumerate(fishList):
+        #print(item, pos)
+        #print (item==0)
+        if item == 0:
+            #print(pos, "&", fishList[pos])
+            fishList[pos]=6
+            newFish()            
+        else: fishList[pos] -=1
+    #print("day number:", days)
+    #print (len(fishList))
+    days +=1
+print(len(fishList))
